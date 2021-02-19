@@ -1,0 +1,33 @@
+<% content_for :head do %>
+  <title>InfoTech - Edit user</title>
+<% end %>
+
+<% content_for :content do %>
+    <article class="col-12">
+        <section>
+            <div class="form">
+                <h1>Edit user</h1>
+
+                <%= form_with model: @user do |f|%>
+                    <%= label_tag :nickname, 'Nickname' %>
+                    <%= text_field_tag :nickname, @user.nickname, required: true, minlength: 5, maxlength: 20 %>
+                    <% @user.errors.full_messages_for(:nickname).each do |message| %>
+                        <div class="error-message"><%= message %></div><br>
+                    <% end %>
+                    <%= label_tag :email, 'Email' %><br>
+                    <%= text_field_tag :email, @user.email, required: true, minlength: 6, maxlength: 32,
+                    title: "Example: email781@characters.domain" %>
+                    <% @user.errors.full_messages_for(:email).each do |message| %>
+                        <div class="error-message"><%= message %></div><br>
+                    <% end %>
+                    <%= label_tag :password, 'Password' %>
+                    <%= password_field_tag :password, nill, required: true, minlength: 8, maxlength: 32 %>
+                    <%= label_tag :country, 'Country' %>
+                    <%= text_field_tag :country, @user.country, required: true, minlength: 5, maxlength: 32 %>
+                    <%= f.hidden_field :id, value: @user.id %>
+                    <%= f.submit "Update" %>
+                <%end%>
+            </div>
+        </section>
+    </article>
+<% end %>

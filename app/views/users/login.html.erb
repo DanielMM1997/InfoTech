@@ -1,0 +1,24 @@
+<% content_for :head do %>
+  <title>InfoTech - Login</title>
+<% end %>
+
+<% content_for :content do %>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+  <article class="col-12">
+    <section>
+      <div class="form">
+        <h1>Login in to InfoTech</h1>
+        <%= form_tag '/login' do %>
+          <%= label_tag :nickname, 'Nickname' %>
+          <%= text_field_tag :nickname, nil, required: true%>
+          <%= label_tag :password, 'Contraseña' %>
+          <%= password_field_tag :password, nil, required: true %>
+          <%= submit_tag "Login"%>
+        <%end%>
+      </div>
+      <p>New to InfoTech? <a href="/register">Create an account.</a></p>
+    </section>
+  </article>
+<% end %>

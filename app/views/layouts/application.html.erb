@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= yield :head %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv='Contect-Type' content='text/html; charset=UTF-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Leading digital magazine in the sector">
+    <meta name="author" content="Daniel Martinez Muñoz">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= yield :content %>
+  </body>
+</html>

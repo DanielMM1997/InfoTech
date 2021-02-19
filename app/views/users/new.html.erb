@@ -1,0 +1,37 @@
+<% content_for :head do %>
+  <title>InfoTech - New user</title>
+<% end %>
+
+<% content_for :content do %>
+    <article class="col-12">
+        <section>
+            <div class="form">
+                <h1>New user</h1>
+
+                <%= form_with model: @user, class: 'was-validated' do |f|%>
+                    <%= f.label :nickname, 'Nickname' %>
+                    <%= f.text_field :nickname, required: true, minlength: 5, maxlength: 20 %>
+                    <% @user.errors.full_messages_for(:nickname).each do |message| %>
+                        <div class="error-message"><%= message %></div><br>
+                    <% end %>
+                    <%= f.label :email, 'Email' %>
+                    <%= f.email_field :email, required: true, minlength: 6, maxlength: 32, pattern: "^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]{4,}@[a-zA-Z0-9-]{4,}(?:.[a-zA-Z0-9-]+)$",
+                    title: "Example: email781@characters.domain" %>
+                    <% @user.errors.full_messages_for(:email).each do |message| %>
+                        <div class="error-message"><%= message %></div><br>
+                    <% end %>
+                    <%= f.label :password, 'Password' %>
+                    <%= f.password_field :password, required: true, minlength: 8, maxlength: 32 %>
+                    <%= f.label :country, 'Country' %>
+                    <%= f.text_field :country, required: true, minlength: 5, maxlength: 32 %>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">Agree to terms and conditions</label>
+                        <div class="invalid-feedback">You must agree before submitting.</div>
+                    </div>
+                    <%= f.submit "Register" %>
+                <%end%>
+            </div>
+        </section>
+    </article>
+<% end %>

@@ -1,0 +1,74 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import 'bootstrap';
+
+ /* Estilos para el formulario de login */
+
+.form {
+  width: 60%;
+  max-width: 48.75em;
+  margin: auto;
+  background: rgb(219, 219, 219);
+  padding: 30px;
+  box-sizing: border-box;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+}
+
+.form h1 {
+  text-align: center;
+}
+
+.form input[type="submit"],
+input[type="text"],
+input[type="file"],
+input[type="password"],
+input[type="email"] {
+  display: block;
+  padding: 5px;
+  width: 100%;
+  margin: 5px 0 20px 0;
+  font-size: 20px;
+}
+
+.form input[type="submit"] {
+  max-width: 200px;
+  background: #3fa735;
+  color: #fff;
+  border: 0;
+  opacity: 0.8;
+  cursor: pointer;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.form input[type="submit"]:hover {
+  opacity: 1;
+}
+
+.error-message {
+  color: red;
+}
+
+@media screen and (max-width: 62em) {
+  .form {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

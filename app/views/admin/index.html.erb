@@ -1,0 +1,42 @@
+<% content_for :head do %>
+  <title>InfoTech - Panel Admin</title>
+<% end %>
+
+<% content_for :content do %>
+  <article class="col-12">
+    <section>
+      <div class="row d-flex align-items-center">
+        <div class="col-10">
+          <h2>Registered users</h2>
+        </div>
+        <div class="col-2">
+          <%= link_to "New user", '/register', method: :get, class: "btn btn-primary"%>
+        </div>
+      </div>
+      <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" class="fixed">Nickname</th>
+          <th scope="col" class="fixed">Email</th>
+          <th scope="col" class="fixed">Country</th>
+          <th scope="col" colspan="2" class="fixed">Action</th>
+        </tr>
+      </thead>
+      <% @users.each do | user |%>
+      <tr>
+        <td class="fixed"> <%= user.nickname%> </td>
+        <td class="fixed"> <%= user.email%> </td>
+        <td class="fixed"> <%= user.country%> </td>
+         <td class="fixed">
+          <%= link_to "Show", user_path(user.id), method: :get, class: "btn btn-info"%>
+          <%= link_to "Edit", edit_user_path(user.id), method: :get, class: "btn btn-primary"%>
+        </td>
+        <td class="fixed">
+          <%= button_to "Delete", user_path(user.id), method: :delete, class: "btn btn-danger"%>
+        </td>
+      </tr>
+      <% end %>
+      </table>
+    </section>
+  </article>
+<% end %>
